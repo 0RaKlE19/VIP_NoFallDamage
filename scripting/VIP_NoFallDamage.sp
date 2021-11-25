@@ -32,7 +32,8 @@ public void OnClientPutInServer(int iClient)
 }
 public Action OnTakeDamage(int iClient, int& attacker, int& inflictor, float& damage, int& damagetype)
 {
-	if(damagetype & DMG_FALL && VIP_IsClientFeatureUse(iClient, g_sFeature))
+	//PrintToChat(iClient, "damage: %f", damage);
+	if(damagetype & DMG_FALL && VIP_IsClientFeatureUse(iClient, g_sFeature) && damage < 100)
 		return Plugin_Handled;
 	return Plugin_Continue;
 }
