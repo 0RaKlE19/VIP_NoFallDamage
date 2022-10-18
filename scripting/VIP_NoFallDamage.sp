@@ -7,8 +7,9 @@
 public Plugin myinfo =
 {
 	name = "[VIP] No Fall Damage",
+	description = "No fall damage up to 100 hp",
 	author = "R1KO (newdecls by PSIH :{ )",
-	version = "1.0.2",
+	version = "1.1.0",
     url = "https://github.com/0RaKlE19/"
 };
 
@@ -32,7 +33,6 @@ public void OnClientPutInServer(int iClient)
 }
 public Action OnTakeDamage(int iClient, int& attacker, int& inflictor, float& damage, int& damagetype)
 {
-	//PrintToChat(iClient, "damage: %f", damage);
 	if(damagetype & DMG_FALL && VIP_IsClientFeatureUse(iClient, g_sFeature) && damage < 100)
 		return Plugin_Handled;
 	return Plugin_Continue;
